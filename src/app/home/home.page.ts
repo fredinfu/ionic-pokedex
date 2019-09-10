@@ -8,7 +8,7 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class HomePage implements OnInit {
   offset = 0;
-
+  pokemons = [];
   constructor(private pokeService: PokemonService) {}
 
   ngOnInit() {
@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   loadPokemon() {
     this.pokeService.getPokemon(this.offset).subscribe(res => {
       console.log('results: ',res);
+      this.pokemons = res;
     })
   }
 }
