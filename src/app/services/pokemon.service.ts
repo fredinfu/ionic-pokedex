@@ -28,7 +28,7 @@ export class PokemonService {
   }
 
   findPokemon(search) {
-    return this.http.get(`${this.baseUrl}/pokemon/${search}`).pipe(
+    return this.http.get(`${this.baseUrl}/pokemon/${search.toLowerCase()}`).pipe(
       map(pokemon => {
         pokemon['image'] = this.getPokeImage(pokemon['id']);
         pokemon['pokeIndex'] = pokemon['id'];
